@@ -25,7 +25,7 @@ const GameGrid = ({ gameQuery }: Props) => {
           md: 3,
           lg: 4,
         }}
-        spacing={3}
+        spacing={6}
       >
         {isloading &&
           skeletons.map((skeleton) => (
