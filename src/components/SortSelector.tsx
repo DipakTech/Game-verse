@@ -3,9 +3,10 @@ import { BsChevronDown } from 'react-icons/bs'
 
 interface Props {
   onSelectSortOrder: (sortOrder: string) => void
+  sortOrder: string
 }
 
-const SortSelector = ({ onSelectSortOrder }: Props) => {
+const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
   const sortOrders = [
     {
       value: '',
@@ -32,10 +33,14 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
       label: 'Average Rating',
     },
   ]
+
+  const currentSortOrder = sortOrders.find((order) => order.value === sortOrder)
+  console.log(currentSortOrder)
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        Order by : Relevence
+        Order by : {currentSortOrder?.label || 'Relevence'}
       </MenuButton>
       <MenuList>
         {sortOrders.map((order) => (
